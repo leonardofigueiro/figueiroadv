@@ -1,17 +1,18 @@
 .section {
-
   & h4 {
-    font-weight: 500;
-    font-size: var(--title--large);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-h3);
     text-align: center;
+    color: var(--brand-strong);
   }
   & p {
     text-align: center;
     line-height: 24px;
+    color: var(--ink-muted);
   }
   & span {
     height: 252px;
     width: 0;
-    border-right: 1px solid #D0C4C4;
+    border-right: 1px solid var(--line);
   }
 }

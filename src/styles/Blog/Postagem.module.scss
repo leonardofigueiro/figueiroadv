@@ -2,28 +2,33 @@
   & img {
     max-width: 100%;
     object-fit: cover;
+    border-radius: var(--r-md);
   }
   & .autor {
-    color: var(--ref--primary--primary40);
-    font-size: --headline--small;
-    font-weight: 500;
+    color: var(--brand-strong);
+    font-size: 1.1rem;
+    font-weight: 600;
     margin: 0;
   }
   & .detalhes {
-    color: var(--ref--tertiary--tertiary70);
+    color: var(--ink-muted);
     font-size: 14px;
   }
 }
 
-
 .postagem {
-  
   display: flex;
   flex-direction: column;
   gap: 15px;
+  color: var(--ink);
+  line-height: var(--lh-body);
   & h2 {
-    font-size: var(--headline--small);
-    font-weight: 500;
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-semibold);
+    color: var(--brand-strong);
+  }
+  & a {
+    color: var(--brand);
   }
   & ul {
     list-style: disc;

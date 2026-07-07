@@ -1,38 +1,51 @@
 .section {
   background-image: url('../../public/bgs/about/Content2.webp');
   background-size: cover;
-  color: var(--sys--light--on-primary);  
+  background-position: center;
+  position: relative;
+  color: var(--ink-inverse);
   & a {
     color: inherit;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(46, 33, 25, 0.85), rgba(78, 59, 47, 0.5));
+  }
+  & > * {
+    position: relative;
+    z-index: 1;
   }
 }
 
 .leftborder {
-    background-color: var(--ref--primary--primary60);
-    opacity: 0.5;
-    width: 4px;
-    height: 140px;
-  }
+  background-color: var(--accent);
+  opacity: 0.6;
+  width: 4px;
+  height: 140px;
+}
 
 .subtitlecard {
-  font-size: var(--title-small);
-  color: var(--ref--primary--primary80);
+  font-size: var(--fs-small);
+  color: var(--accent-soft);
 }
 
 .line {
   width: 170px;
   height: 0;
-  border: 1px solid var(--ref--primary--primary70);
+  border: 1px solid var(--accent);
 }
 
 .title {
-  font-size: 42px;
-  font-family: var(--charm);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-family: var(--font-display);
+  color: var(--accent-soft);
 }
 
 .text {
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 16px;
-  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-inverse);
 }
