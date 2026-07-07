@@ -1,9 +1,10 @@
+'use client';
 import { useEffect, useRef, useState } from 'react';
 import styled from './Header.module.scss';
 import Menu from '../../public/icons/Commons/menu.svg';
 import OffCanvas from './OffCanvas';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useOnHoverOutside } from '@/Hooks/useOnHoverOutside';
 import Logo from '../../public/logos/logo_1.svg';
 
@@ -11,9 +12,9 @@ import Logo from '../../public/logos/logo_1.svg';
 export default function Header() {
   useEffect(() => {
     require('bootstrap/js/dist/offcanvas');
-  },[]);
+  }, []);
 
-  const router = useRouter();
+  const pathname = usePathname();
   const dropdownRef = useRef<HTMLLIElement | null>(null); // Create a reference for dropdown container
   const [isMenuDropDownOpen, setMenuDropDownOpen] = useState(false);
 
@@ -25,29 +26,26 @@ export default function Header() {
   const [small, setSmall] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', () =>
-        setSmall(window.pageYOffset > 200)
-      );
-    }
-
+    const onScroll = () => setSmall(window.scrollY > 200);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
   useOnHoverOutside(dropdownRef, closeHoverMenu); // Call the hook
   return (
     <header className={`${styled.header} fixed-top`}>
       <section className='container d-flex justify-content-between align-items-center'>
         <div className={small ? styled.logo_small : styled.logo}>
-          
-          <Logo width ={small ? '40px' : '100px'}/>
-          
-          
+
+          <Logo width={small ? '40px' : '100px'} />
+
+
           <span>figueiró</span>
         </div>
         <nav className='d-none d-lg-block'>
           <ul className='gap-4 d-flex navb-items'>
-            <li><Link className={router.pathname === '/' ? styled.link__ativo : ''} href="/">Inicio</Link></li>
+            <li><Link className={pathname === '/' ? styled.link__ativo : ''} href="/">Inicio</Link></li>
             <li style={{ position: 'relative' }} ref={dropdownRef}><Link
-              className={router.pathname === '/areas' ? styled.link__ativo : ''}
+              className={pathname === '/areas' ? styled.link__ativo : ''}
               href="/areas"
               onMouseOver={() => {
                 setMenuDropDownOpen(true);
@@ -73,9 +71,9 @@ export default function Header() {
 
 
             </li>
-            <li><Link className={router.pathname === '/about' ? styled.link__ativo : ''} href="/about">Quem somos</Link></li>
-            <li><Link className={router.pathname === '/contato' ? styled.link__ativo : ''} href="/contato">Contato</Link></li>
-            <li><Link className={router.pathname === '/blog' ? styled.link__ativo : ''} href="/blog">Artigos</Link></li>
+            <li><Link className={pathname === '/about' ? styled.link__ativo : ''} href="/about">Quem somos</Link></li>
+            <li><Link className={pathname === '/contato' ? styled.link__ativo : ''} href="/contato">Contato</Link></li>
+            <li><Link className={pathname === '/blog' ? styled.link__ativo : ''} href="/blog">Artigos</Link></li>
           </ul>
         </nav>
         <div className='d-lg-none d-md-block'>

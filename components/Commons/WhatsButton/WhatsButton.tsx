@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react';
 import styled from './WhatsButton.module.scss';
 import { useInterval } from '@/Hooks/shake';

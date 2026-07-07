@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import styled from '../../src/styles/Commons/OffCanvas.module.scss';
 import { useEffect } from 'react';
