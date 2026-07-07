@@ -1,0 +1,87 @@
+/* ============================================================
+   Figueiró Advocacia — Design Tokens (fonte única de verdade)
+   Direção: marrom amadeirado (sobriedade/autoridade) + acento dourado.
+   Componentes consomem SÓ os tokens SEMÂNTICOS (--brand, --ink…),
+   nunca as referências --ref--* diretamente.
+   ============================================================ */
+
+:root {
+  /* ---- Marca (marrom amadeirado / walnut) ---- */
+  --brand:          #4E3B2F;  /* primária — links, ênfase, botões */
+  --brand-strong:   #2E2119;  /* espresso — títulos de seção, footer, hero */
+  --brand-hover:    #6B5443;  /* hover/ativo */
+  --brand-contrast: #FBF8F4;  /* texto sobre a marca */
+
+  /* ---- Acento (dourado / bronze) ---- */
+  --accent:         #A07E4C;  /* dourado — ícones/detalhes grandes */
+  --accent-strong:  #7A5E34;  /* bronze — acento em texto (AA em texto grande) */
+  --accent-soft:    #E7D4B5;  /* dourado pálido — decorativo, NÃO em texto */
+
+  /* ---- Superfícies (creme quente) ---- */
+  --surface:        #FBF8F4;  /* fundo principal */
+  --surface-2:      #F1E9DE;  /* bege — blocos destacados */
+  --surface-3:      #E8DFD3;  /* bege alt — cards alternados */
+
+  /* ---- Tinta (texto) ---- */
+  --ink:            #2A211C;  /* corpo (marrom quase-preto) */
+  --ink-muted:      #6B5F55;  /* secundário (cinza-marrom) */
+  --ink-inverse:    #FBF8F4;  /* texto sobre fundo escuro */
+
+  /* ---- Linhas & estados ---- */
+  --line:           #DDD3C7;  /* bordas, divisores */
+  --focus:          #6B5443;  /* anel de foco */
+  --error:          #B3261E;
+  --success:        #3E6B3A;
+
+  /* ---- Tipografia ---- */
+  /* wiring do next/font virá na Fase 3; fallback nas famílias reais */
+  --font-sans:    var(--font-libre, 'Libre Franklin', system-ui, sans-serif);
+  --font-display: var(--font-charm, 'Charm', cursive);
+
+  --fs-display: clamp(2.5rem, 5vw, 3.5rem);   /* 40–57px  hero */
+  --fs-h1:      clamp(2rem, 3.5vw, 2.45rem);  /* 32–39px */
+  --fs-h2:      clamp(1.6rem, 2.5vw, 1.95rem);/* 26–31px */
+  --fs-h3:      1.5rem;                        /* 24px    */
+  --fs-body:    1rem;                          /* 16px    */
+  --fs-small:   0.875rem;                      /* 14px    */
+
+  --lh-tight:   1.15;
+  --lh-heading: 1.25;
+  --lh-body:    1.6;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold:600;
+
+  /* ---- Espaçamento (escala 4/8pt) ---- */
+  --sp-1: 0.25rem;  /* 4  */
+  --sp-2: 0.5rem;   /* 8  */
+  --sp-3: 0.75rem;  /* 12 */
+  --sp-4: 1rem;     /* 16 */
+  --sp-6: 1.5rem;   /* 24 */
+  --sp-8: 2rem;     /* 32 */
+  --sp-12: 3rem;    /* 48 */
+  --sp-16: 4rem;    /* 64 */
+  --sp-24: 6rem;    /* 96 */
+
+  /* ---- Raio ---- */
+  --r-sm:   6px;    /* inputs, botões */
+  --r-md:   12px;   /* cards */
+  --r-full: 999px;  /* pill, avatar */
+
+  /* ---- Elevação ---- */
+  --e-1: 0 1px 3px rgba(32, 26, 26, 0.08), 0 1px 2px rgba(32, 26, 26, 0.06);
+  --e-2: 0 6px 16px rgba(32, 26, 26, 0.12), 0 2px 6px rgba(32, 26, 26, 0.08);
+
+  /* ---- Layout ---- */
+  --header-h: 80px;
+  --container: 1140px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur:  200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; }
+}

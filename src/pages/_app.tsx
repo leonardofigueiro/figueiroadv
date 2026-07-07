@@ -1,38 +1,43 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@/styles/tokens.css';
 import '@/styles/globals.css';
-//import { Charm, Libre_Franklin } from '@next/font/google';
+import { Charm, Libre_Franklin } from 'next/font/google';
 import Layout from 'components/Commons/layout';
-//import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect } from 'react';
-//import { ReactElement, ReactNode, useEffect } from 'react';
 import TagManager from 'react-gtm-module';
-// const charm = Charm({
-//   subsets: ['latin'],
-//   weight: '400'
-// });
 
-// const libre = Libre_Franklin({ subsets: ['latin'] });
+// Auto-hospedagem via next/font — elimina o <link> render-blocking do Google Fonts.
+const charm = Charm({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-charm',
+  display: 'swap',
+});
 
+const libre = Libre_Franklin({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-libre',
+  display: 'swap',
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    const tagManagerArgs = {
-      gtmId: 'GTM-TTSSRNW'
-    };
-
-    TagManager.initialize(tagManagerArgs);
+    TagManager.initialize({ gtmId: 'GTM-TTSSRNW' });
   }, []);
+
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Layout>
-
-        <Component {...pageProps} />
-      </Layout>
+      <div className={`${libre.className} ${libre.variable} ${charm.variable}`}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </div>
     </>
   );
 }

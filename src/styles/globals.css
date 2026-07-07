@@ -49,8 +49,8 @@ table {
 --black: #000000;
 
 
---charm: 'Charm', cursive;;
---libre: 'Libre Franklin', sans-serif;;
+--charm: var(--font-charm, 'Charm', cursive);
+--libre: var(--font-libre, 'Libre Franklin', sans-serif);
 
 
 --sys--light--primary: #6C5A5B;
