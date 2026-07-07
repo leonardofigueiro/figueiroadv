@@ -1,5 +1,5 @@
-import { FormEvent, useState } from 'react';
-import InputMask from 'react-input-mask';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { InputMask } from '@react-input/mask';
 import styled from '../../src/styles/Commons/Form.module.scss';
 import axios from 'axios';
 
@@ -84,10 +84,13 @@ export default function Form() {
           <label htmlFor="tel">Telefone / Whatsapp</label>
           <InputMask
             className='inputTel'
-            mask={'(99) 99999-9999'}
-            placeholder={'(99) 99999-9999'}
+            id="tel"
+            name="tel"
+            mask='(__) _____-____'
+            replacement={{ _: /\d/ }}
+            placeholder='(99) 99999-9999'
             value={tel}
-            onChange={event => setTel(event.target.value)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => setTel(event.target.value)}
             required
           />
         </div>

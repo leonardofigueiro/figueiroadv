@@ -1,7 +1,7 @@
 import { useEffect, RefObject } from 'react';
 
 
-export function useOnHoverOutside(ref: RefObject<HTMLLIElement>, handler: Function) {
+export function useOnHoverOutside(ref: RefObject<HTMLLIElement | null>, handler: Function) {
   useEffect(
     () => {
       const listener = (event:Event) => {
