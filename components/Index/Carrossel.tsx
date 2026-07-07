@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import ImageOne from '../../public/images/carrossel/1.webp';
 import ImageTwo from '../../public/images/carrossel/2.webp';

@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import Trabalho from '../../public/images/index/Conteudo3/trabalho.webp';
 import Sucessao from '../../public/images/index/Conteudo3/sucessao.webp';
@@ -5,7 +6,7 @@ import Contratos from '../../public/images/index/Conteudo3/contratos.webp';
 import RespCivil from '../../public/images/index/Conteudo3/respcivil.webp';
 
 import styled from '../../src/styles/Index/Conteudo3.module.scss';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 export default function Conteudo3() {

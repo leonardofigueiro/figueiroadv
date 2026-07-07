@@ -1,3 +1,4 @@
+'use client';
 import styled from '../../src/styles/Blog/Content1.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
