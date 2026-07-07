@@ -1,58 +1,47 @@
-import styled from './Footer.module.scss';
-import LogoTexto from './Logo';
-import Whatsapp from '../../public/icons/WhatsApp.svg';
-import Instagram from '../../public/icons/Instagram.svg';
-import Facebook from '../../public/icons/Facebook.svg';
 import Link from 'next/link';
-import WhatsButton from './WhatsButton/WhatsButton';
-
+import { site, nav } from '@/lib/site';
+import styles from './Footer.module.css';
 
 export default function Footer() {
   return (
-    <footer className={`${styled.footer} d-flex align-items-center justify-content-between flex-wrap flex-lg-nowrap gap-3`}>
-      <ul className='container'>
-        <li className={styled.li__titulo}>MENU</li>
-        <li><Link prefetch={false} href="/">Início</Link></li>
-        <li><Link prefetch={false} href="/areas">Áreas de atuação</Link></li>
-        <li><Link prefetch={false} href="about">Quem somos</Link></li>
-        <li><Link prefetch={false} href="contato">Contato</Link></li>
-        <li><Link prefetch={false} href="blog">Artigos</Link></li>
-      </ul>
-
-      <ul className='align-self-start container'>
-        <li className={styled.li__titulo}>ATUAÇÃO</li>
-        <li><Link prefetch={false} href="/areas/trabalhista">Direito do trabalho</Link></li>
-        <li><Link prefetch={false} href="/areas/sucessoes">Sucessões</Link></li>
-        <li><Link prefetch={false} href="/areas/contratos">Contratos</Link></li>
-        <li><Link prefetch={false} href="/areas/civil">Responsabilidade Civil</Link></li>
-      </ul>
-      <ul className='align-self-start container'>
-        <li className={styled.li__titulo}>CONTATOS</li>
-        <li>
+    <footer className={styles.footer}>
+      <div className={styles.inner}>
+        <div className={styles.grid}>
           <div>
-            <Whatsapp/> 
-            <p>(65)99275-0512</p>
+            <span className={styles.logo}>
+              Figueiró<small>Advocacia</small>
+            </span>
+            <p className={styles.muted} style={{ marginTop: 12 }}>
+              Advocacia com atendimento online.
+            </p>
+            <p className={styles.muted}>OAB/XX 000.000</p>
           </div>
-        </li>
-        <li>
-          <div>
-            <Facebook/> 
-            <p>/figueiroadvocacia</p>
+
+          <div className={styles.col}>
+            <h4>Navegação</h4>
+            {nav.map((n) => (
+              <Link key={n.href} href={n.href}>
+                {n.label}
+              </Link>
+            ))}
           </div>
-        </li>
-        <li>
-          <div>
-            <Instagram/> 
-            <p><a href='https://www.instagram.com/leonardofigueiro/'>/figueiroadvocacia</a></p>
+
+          <div className={styles.col}>
+            <h4>Contato</h4>
+            <a href={site.whatsapp} target="_blank" rel="noopener">
+              WhatsApp: {site.phone}
+            </a>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href={site.instagram} target="_blank" rel="noopener">
+              Instagram
+            </a>
           </div>
-        </li>
+        </div>
 
-      </ul>
-    
-
-      <LogoTexto />
-      <WhatsButton/>
-
+        <div className={styles.bar}>
+          © {new Date().getFullYear()} Figueiró Advocacia · Todos os direitos reservados
+        </div>
+      </div>
     </footer>
   );
 }

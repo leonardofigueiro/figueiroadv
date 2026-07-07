@@ -1,33 +1,29 @@
 import type { Metadata } from 'next';
-import Carrossel from 'components/Index/Carrossel';
-import Conteudo1 from 'components/Index/Conteudo1';
-import Conteudo2 from 'components/Index/Conteudo2';
-import Conteudo3 from 'components/Index/Conteudo3';
-import Conteudo4 from 'components/Index/Conteudo4';
-import IconsIndex from 'components/Index/Icons';
-import UltimasPostagens from 'components/Index/UltimosPosts/UltimasPostagens';
-import { getPosts } from '@/lib/wp';
-
-export const revalidate = 600;
+import Hero from 'components/home/Hero';
+import ComoFunciona from 'components/home/ComoFunciona';
+import Vantagens from 'components/home/Vantagens';
+import AreasHome from 'components/home/AreasHome';
+import Confianca from 'components/home/Confianca';
+import FAQ from 'components/home/FAQ';
+import CtaFinal from 'components/home/CtaFinal';
 
 export const metadata: Metadata = {
+  title: 'Advocacia online — atendimento por WhatsApp e vídeo',
   description:
-    'Soluções jurídicas em Direito Civil, Contratos, Sucessões e Trabalhista. Atendimento próximo e técnico. Agende uma avaliação.',
+    'Resolva questões de Direito Civil, Contratos, Sucessões e Trabalhista 100% online, com atendimento direto do advogado. Primeira conversa gratuita.',
   alternates: { canonical: '/' },
 };
 
-export default async function HomePage() {
-  const posts = (await getPosts()).slice(0, 3);
-
+export default function HomePage() {
   return (
     <>
-      <Carrossel />
-      <Conteudo1 />
-      <Conteudo2 />
-      <Conteudo3 />
-      <Conteudo4 />
-      <IconsIndex />
-      {posts.length > 0 && <UltimasPostagens posts={posts} />}
+      <Hero />
+      <ComoFunciona />
+      <Vantagens />
+      <AreasHome />
+      <Confianca />
+      <FAQ />
+      <CtaFinal />
     </>
   );
 }

@@ -7,6 +7,7 @@ import Script from 'next/script';
 import { Charm, Libre_Franklin } from 'next/font/google';
 import Header from 'components/Commons/Header';
 import Footer from 'components/Commons/Footer';
+import FloatWhats from 'components/Commons/FloatWhats';
 
 const charm = Charm({
   subsets: ['latin'],
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <FloatWhats />
 
         <script
           type="application/ld+json"

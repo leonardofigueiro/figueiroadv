@@ -204,11 +204,10 @@ table {
 
 
 body {
-  color: var(--sys--light--on-secondary-container);
-  background-color: var(--sys--light--background);
-  font-family: var(--libre);
+  color: var(--ink);
+  background-color: var(--surface);
+  font-family: var(--font-sans);
   font-size: 16px;
-  margin-top: 100px;
 }
 
 .bgSec {

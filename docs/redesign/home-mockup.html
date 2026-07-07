@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nova Home — Figueiró Advocacia (online-first)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --brand:#4E3B2F; --brand-strong:#2E2119; --brand-hover:#6B5443; --brand-contrast:#FBF8F4;
+    --accent:#A07E4C; --accent-strong:#7A5E34; --accent-soft:#E7D4B5;
+    --surface:#FBF8F4; --surface-2:#F1E9DE; --surface-3:#E8DFD3;
+    --ink:#2A211C; --ink-muted:#6B5F55; --ink-inverse:#FBF8F4;
+    --line:#DDD3C7; --focus:#6B5443; --wa:#25D366;
+    --font-sans:'Libre Franklin',system-ui,sans-serif; --font-display:'Charm',cursive;
+    --r-sm:6px; --r-md:12px; --r-lg:20px; --r-full:999px;
+    --e-1:0 1px 3px rgba(32,26,26,.08),0 1px 2px rgba(32,26,26,.06);
+    --e-2:0 8px 24px rgba(46,33,25,.14),0 2px 8px rgba(46,33,25,.08);
+    --container:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-sans);color:var(--ink);background:var(--surface);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--font-display);color:var(--accent-strong);font-size:1.5rem;line-height:1}
+  .sec-eyebrow{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-strong);font-weight:600;margin-bottom:10px}
+  h2.title{font-size:clamp(1.7rem,3vw,2.15rem);font-weight:600;color:var(--brand-strong);line-height:1.2}
+  .lead{color:var(--ink-muted);font-size:1.05rem;max-width:60ch}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:52px;padding:0 26px;border-radius:var(--r-full);
+       font-weight:600;font-size:1rem;border:2px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap}
+  .btn-wa{background:var(--wa);color:#0b2e13}
+  .btn-wa:hover{filter:brightness(1.05)}
+  .btn-primary{background:var(--brand-strong);color:#fff}
+  .btn-primary:hover{background:var(--brand-hover)}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .wa-ico{width:20px;height:20px;display:inline-block;fill:currentColor}
+
+  /* Header */
+  header{background:rgba(251,248,244,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-family:var(--font-display);font-size:1.9rem;color:var(--brand-strong);line-height:1}
+  .logo small{font-family:var(--font-sans);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-muted);display:block;margin-top:2px}
+  nav.main{display:flex;align-items:center;gap:24px}
+  nav.main a.lnk{font-weight:500;font-size:.93rem;color:var(--ink)}
+  nav.main a.lnk:hover{color:var(--brand)}
+  nav.main .btn{height:42px;font-size:.9rem;padding:0 18px}
+  @media(max-width:880px){nav.main .lnk{display:none}}
+
+  /* Hero */
+  .hero{background:linear-gradient(135deg,var(--brand-strong) 0%,var(--brand) 72%);color:var(--ink-inverse);position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;right:-100px;top:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(160,126,76,.28),transparent 70%)}
+  .hero .wrap{padding:80px 24px;position:relative;z-index:1;max-width:860px}
+  .hero .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(231,212,181,.15);border:1px solid rgba(231,212,181,.35);
+              color:var(--accent-soft);font-size:.82rem;font-weight:600;padding:7px 15px;border-radius:var(--r-full);margin-bottom:20px}
+  .hero .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 4px rgba(37,211,102,.25)}
+  .hero h1{font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.08;font-weight:600;margin-bottom:18px;max-width:18ch}
+  .hero h1 em{font-family:var(--font-display);font-style:normal;color:var(--accent-soft)}
+  .hero p{font-size:1.18rem;opacity:.92;max-width:56ch;margin-bottom:30px}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .hero .ctas small{opacity:.75;font-size:.85rem}
+  .hero .signals{display:flex;gap:14px;margin-top:44px;flex-wrap:wrap}
+  .hero .signals span{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;opacity:.9}
+  .hero .signals span::before{content:'✓';color:var(--accent-soft);font-weight:700}
+
+  /* Como funciona (steps) */
+  section.block{padding:76px 0}
+  .bg-2{background:var(--surface-2)}
+  .head-center{text-align:center;max-width:640px;margin:0 auto 48px}
+  .head-center .lead{margin:12px auto 0}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:26px;position:relative}
+  .step .n{counter-increment:s;font-family:var(--font-display);font-size:2.2rem;color:var(--accent);line-height:1}
+  .step .n::before{content:counter(s)}
+  .step h3{font-size:1.08rem;font-weight:600;color:var(--brand-strong);margin:10px 0 6px}
+  .step p{font-size:.9rem;color:var(--ink-muted)}
+
+  /* Vantagens */
+  .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:800px){.benefits{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.benefits{grid-template-columns:1fr}}
+  .benefit .ic{width:46px;height:46px;border-radius:var(--r-md);background:var(--surface-3);color:var(--brand-strong);
+               display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:12px}
+  .benefit h3{font-size:1.08rem;font-weight:600;color:var(--brand-strong);margin-bottom:6px}
+  .benefit p{font-size:.92rem;color:var(--ink-muted)}
+
+  /* Áreas (compacto) */
+  .areas{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:800px){.areas{grid-template-columns:1fr 1fr}}
+  .area{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:20px;transition:.2s}
+  .area:hover{box-shadow:var(--e-2);transform:translateY(-3px)}
+  .area .ic{font-size:1.5rem;color:var(--accent-strong)}
+  .area h3{font-size:1.02rem;font-weight:600;color:var(--brand-strong);margin:8px 0 4px}
+  .area p{font-size:.85rem;color:var(--ink-muted)}
+
+  /* Prova social */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:800px){.quotes{grid-template-columns:1fr}}
+  .quote{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;box-shadow:var(--e-1)}
+  .quote .stars{color:var(--accent);letter-spacing:2px;margin-bottom:10px}
+  .quote p{font-size:.95rem;margin-bottom:14px}
+  .quote .who{font-size:.85rem;color:var(--ink-muted);font-weight:600}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto;display:flex;flex-column:column;gap:12px}
+  details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:18px 22px;margin-bottom:12px}
+  details[open]{box-shadow:var(--e-1)}
+  summary{font-weight:600;color:var(--brand-strong);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'+';color:var(--accent-strong);font-size:1.4rem;line-height:1}
+  details[open] summary::after{content:'–'}
+  details p{margin-top:12px;color:var(--ink-muted);font-size:.94rem}
+
+  /* CTA final */
+  .cta-final{background:linear-gradient(135deg,var(--brand-strong),var(--brand));color:var(--ink-inverse);border-radius:var(--r-lg);padding:56px;text-align:center;position:relative;overflow:hidden}
+  .cta-final h2{color:#fff;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:600;margin-bottom:12px}
+  .cta-final p{opacity:.9;max-width:52ch;margin:0 auto 26px}
+
+  /* Footer */
+  footer{background:var(--brand-strong);color:var(--ink-inverse);padding:52px 0 26px}
+  footer .grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:28px}
+  @media(max-width:800px){footer .grid{grid-template-columns:1fr 1fr}}
+  footer h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:14px}
+  footer a,footer p{color:rgba(255,255,255,.82);font-size:.9rem;display:block;margin-bottom:8px}
+  footer a:hover{color:#fff}
+  footer .bar{border-top:1px solid rgba(255,255,255,.14);margin-top:30px;padding-top:16px;font-size:.8rem;opacity:.7}
+
+  /* WhatsApp flutuante */
+  .wa-float{position:fixed;right:20px;bottom:20px;background:var(--wa);color:#0b2e13;border-radius:var(--r-full);
+            padding:13px 20px;font-weight:700;box-shadow:var(--e-2);display:inline-flex;align-items:center;gap:9px;z-index:20}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Figueiró<small>Advocacia</small></div>
+    <nav class="main">
+      <a class="lnk">Como funciona</a><a class="lnk">Vantagens</a><a class="lnk">Áreas</a><a class="lnk">Artigos</a>
+      <a class="btn btn-wa">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="pill"><span class="dot"></span> Atendimento 100% online</span>
+    <h1>Seu advogado <em>onde você estiver</em> — sem sair de casa.</h1>
+    <p>Resolva questões de Direito Civil, Contratos, Sucessões e Trabalhista pelo WhatsApp e por vídeo. Rápido, seguro e com todo o rigor de um escritório — só que digital.</p>
+    <div class="ctas">
+      <a class="btn btn-wa">
+        <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.8-1.6-4-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2.9 1.2 2.9.8 3.5.8.5 0 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2A10 10 0 0 0 3.5 17.4L2 22l4.7-1.5A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.8.9.9-2.7-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+        Falar agora no WhatsApp
+      </a>
+      <a class="btn btn-ghost">Ver como funciona</a>
+    </div>
+    <p style="margin-top:14px;font-size:.9rem;opacity:.85">Primeira conversa <strong style="color:var(--accent-soft)">gratuita e sem compromisso</strong>.</p>
+    <div class="signals">
+      <span>Atendimento por WhatsApp e vídeo</span>
+      <span>Procuração e contratos com assinatura digital</span>
+      <span>Acompanhamento online do seu caso</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="block" id="como">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="sec-eyebrow">Simples assim</div>
+      <h2 class="title">Como funciona o atendimento online</h2>
+      <p class="lead">Do primeiro contato à solução, tudo pela tela — no seu tempo e sem burocracia.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n"></div><h3>Conte seu caso</h3><p>Mande sua dúvida pelo WhatsApp ou pelo formulário. Sem agenda, sem deslocamento.</p></div>
+      <div class="step"><div class="n"></div><h3>Orientação por vídeo</h3><p>Conversamos por vídeo ou WhatsApp e explicamos seus direitos com clareza, sem juridiquês.</p></div>
+      <div class="step"><div class="n"></div><h3>Tudo digital</h3><p>Procuração e contratos assinados eletronicamente — com validade jurídica, sem papel.</p></div>
+      <div class="step"><div class="n"></div><h3>Acompanhe online</h3><p>Receba as atualizações do seu caso onde você estiver, direto no celular.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VANTAGENS -->
+<section class="block bg-2" id="vantagens">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="sec-eyebrow">Por que online</div>
+      <h2 class="title">A advocacia que cabe na sua rotina</h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><div class="ic">⚡</div><h3>Agilidade</h3><p>Canais diretos e respostas objetivas. Você não trava esperando encaixe na agenda.</p></div>
+      <div class="benefit"><div class="ic">📍</div><h3>Sem deslocamento</h3><p>Resolva de onde estiver. Atendimento remoto, esteja você em casa ou viajando.</p></div>
+      <div class="benefit"><div class="ic">🕐</div><h3>No seu tempo</h3><p>Horários flexíveis e conversa por mensagem — compatível com quem trabalha o dia todo.</p></div>
+      <div class="benefit"><div class="ic">✍️</div><h3>100% digital</h3><p>Documentos e assinaturas eletrônicas com validade legal. Nada de cartório desnecessário.</p></div>
+      <div class="benefit"><div class="ic">🔒</div><h3>Sigilo e segurança</h3><p>O mesmo dever de sigilo e o mesmo rigor técnico de um escritório tradicional.</p></div>
+      <div class="benefit"><div class="ic">👁️</div><h3>Transparência</h3><p>Tudo registrado por escrito. Você acompanha cada etapa, sem se perder no processo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section class="block" id="areas">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="sec-eyebrow">Áreas atendidas online</div>
+      <h2 class="title">Onde podemos te ajudar</h2>
+    </div>
+    <div class="areas">
+      <div class="area" style="border-color:var(--accent);position:relative">
+        <span style="position:absolute;top:14px;right:14px;background:var(--accent-soft);color:var(--brand-strong);font-size:.65rem;font-weight:700;letter-spacing:.05em;padding:3px 8px;border-radius:var(--r-full)">MAIS PROCURADO</span>
+        <div class="ic">⚖</div><h3>Sucessões e Inventário</h3><p>Inventário (inclusive extrajudicial) e testamento — boa parte 100% online.</p></div>
+      <div class="area"><div class="ic">⚑</div><h3>Trabalhista</h3><p>Seus direitos no trabalho, resolvidos sem sair de casa.</p></div>
+      <div class="area"><div class="ic">✎</div><h3>Contratos</h3><p>Revisão e elaboração para você ou sua empresa, com assinatura digital.</p></div>
+      <div class="area"><div class="ic">§</div><h3>Direito Civil</h3><p>Indenizações, consumo e responsabilidade civil.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIANÇA (sem depoimentos fake — prova social a coletar) -->
+<section class="block bg-2">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="sec-eyebrow">Confiança</div>
+      <h2 class="title">Você fala direto com o advogado</h2>
+      <p class="lead">Sem intermediários e sem robô. Enquanto reunimos os primeiros depoimentos, veja o que garante a segurança do seu atendimento.</p>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><div class="ic">🧑‍⚖️</div><h3>Atendimento pessoal</h3><p>Quem conversa com você é o advogado responsável pelo caso — do começo ao fim.</p></div>
+      <div class="benefit"><div class="ic">🔒</div><h3>Sigilo profissional</h3><p>Tudo o que você compartilhar é protegido pelo dever de sigilo da advocacia.</p></div>
+      <div class="benefit"><div class="ic">✅</div><h3>Validade jurídica</h3><p>Procurações e contratos com assinatura eletrônica têm plena validade legal.</p></div>
+      <div class="benefit"><div class="ic">💬</div><h3>Sem compromisso</h3><p>A primeira conversa é gratuita. Você entende seus direitos antes de decidir qualquer coisa.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ / OBJEÇÕES -->
+<section class="block">
+  <div class="wrap">
+    <div class="head-center">
+      <div class="sec-eyebrow">Ainda em dúvida?</div>
+      <h2 class="title">Perguntas frequentes sobre advocacia online</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>Advocacia online é segura e tem validade?</summary><p>Sim. O atendimento remoto tem a mesma validade jurídica do presencial. Procurações e contratos podem ser assinados digitalmente, com validade legal, e o sigilo profissional é o mesmo de sempre.</p></details>
+      <details><summary>Funciona para o meu caso?</summary><p>A maioria das demandas de Direito Civil, Contratos, Sucessões e Trabalhista pode ser conduzida remotamente. Quando algum ato exigir presença, orientamos você com antecedência.</p></details>
+      <details><summary>Preciso ir a algum lugar assinar documentos?</summary><p>Na maior parte dos casos, não. Usamos assinatura eletrônica com validade jurídica — você resolve pelo próprio celular ou computador.</p></details>
+      <details><summary>Como eu falo com o advogado?</summary><p>Você fala diretamente com o advogado responsável, por WhatsApp ou videochamada. Nada de intermediários ou robôs.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="block">
+  <div class="wrap">
+    <div class="cta-final">
+      <div class="eyebrow" style="color:var(--accent-soft);margin-bottom:10px">Vamos resolver isso?</div>
+      <h2>Tire sua dúvida agora, sem sair de casa</h2>
+      <p>Conte seu caso pelo WhatsApp e receba uma primeira orientação. Sem compromisso e com o sigilo que a advocacia exige.</p>
+      <a class="btn btn-wa" style="height:56px;padding:0 30px">Falar no WhatsApp agora</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="logo" style="color:#fff">Figueiró<small style="color:var(--accent-soft)">Advocacia</small></div>
+        <p style="margin-top:12px">Advocacia com atendimento online.</p>
+        <p>OAB/XX 000.000</p>
+      </div>
+      <div><h4>Navegação</h4><a>Como funciona</a><a>Vantagens</a><a>Áreas</a><a>Artigos</a></div>
+      <div><h4>Contato</h4><a>WhatsApp: (65) 99275-0512</a><a>contato@figueiroadvocacia.com.br</a><a>Instagram</a></div>
+    </div>
+    <div class="bar">© 2026 Figueiró Advocacia · Todos os direitos reservados</div>
+  </div>
+</footer>
+
+<a class="wa-float">
+  <svg class="wa-ico" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 3.5 17.4L2 22l4.7-1.5A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.8.9.9-2.7-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+  Fale conosco
+</a>
+
+</body>
+</html>
