@@ -211,12 +211,14 @@ body {
 }
 
 .bgSec {
-  background-color: var(--sys--light--secondary-container);
+  background-color: var(--surface-2);
 }
 
 .section__title {
-  font-size: var(--headline--medium);
-  font-weight: 500;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  color: var(--brand-strong);
+  line-height: var(--lh-heading);
 }
 @media (max-width: 580px) {
   .section__title {
@@ -225,18 +227,20 @@ body {
 }
 
 .section__texto {
-  font-size: 14px;
-  line-height: 30px;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink);
 }
 
 .section__lista {
-  font-size: 14px;
+  font-size: var(--fs-body);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  line-height: 25px;
+  gap: var(--sp-2);
+  line-height: 1.5;
   list-style-type: disc;
-  margin-left: 20px;
+  margin-left: 1.25rem;
+  color: var(--ink);
 }
 
 .loading {
