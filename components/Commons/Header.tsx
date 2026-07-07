@@ -14,7 +14,11 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo} aria-label="Figueiró Advocacia — início">
-          Figueiró<small>Advocacia</small>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logos/logo_1.svg" alt="" className={styles.logoMark} />
+          <span className={styles.logoText}>
+            Figueiró<small>Advocacia</small>
+          </span>
         </Link>
 
         <nav className={styles.nav}>

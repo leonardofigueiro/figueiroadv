@@ -14,7 +14,7 @@ export default function Footer() {
             <p className={styles.muted} style={{ marginTop: 12 }}>
               Advocacia com atendimento online.
             </p>
-            <p className={styles.muted}>OAB/XX 000.000</p>
+            <p className={styles.muted}>{site.oab}</p>
           </div>
 
           <div className={styles.col}>
@@ -34,6 +34,9 @@ export default function Footer() {
             <a href={`mailto:${site.email}`}>{site.email}</a>
             <a href={site.instagram} target="_blank" rel="noopener">
               Instagram
+            </a>
+            <a href={site.maps} target="_blank" rel="noopener">
+              {site.address.full}
             </a>
           </div>
         </div>

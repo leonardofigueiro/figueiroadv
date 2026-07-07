@@ -62,8 +62,16 @@ const legalServiceJsonLd = {
   name: 'Figueiró Advocacia',
   url: SITE_URL,
   telephone: '+55-65-99275-0512',
+  email: 'contato@figueiroadvocacia.com.br',
   areaServed: 'BR',
   knowsLanguage: 'pt-BR',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Nilo Torres, 2113-W',
+    addressLocality: 'Tangará da Serra',
+    addressRegion: 'MT',
+    addressCountry: 'BR',
+  },
   sameAs: [
     'https://www.instagram.com/leonardofigueiro/',
     'https://www.facebook.com/figueiroadvocacia',

@@ -16,13 +16,23 @@
   height: var(--header-h);
 }
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logoMark {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+.logoText {
   font-family: var(--font-display);
   font-size: 1.9rem;
   color: var(--brand-strong);
   line-height: 1;
-  text-decoration: none;
 }
-.logo small {
+.logoText small {
   font-family: var(--font-sans);
   font-size: 0.62rem;
   letter-spacing: 0.24em;
