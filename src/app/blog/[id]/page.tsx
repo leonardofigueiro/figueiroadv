@@ -46,8 +46,30 @@ export default async function PostagemPage({
   const conteudo = post.content.rendered;
   const tempo = post.tempo;
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title.rendered,
+    datePublished: post.date,
+    author: { '@type': 'Organization', name: 'Figueiró Advocacia' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Figueiró Advocacia',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://figueiroadvocacia.com.br/logos/logo_1.svg',
+      },
+    },
+    image: post.featured_image_versions?.versions?.large,
+    mainEntityOfPage: `https://figueiroadvocacia.com.br/blog/${id}`,
+  };
+
   return (
     <section className={styled.sectionPost}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <HeaderPost posts={post} />
       <div className='container'>
         <div className='row py-5'>
