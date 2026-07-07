@@ -1,23 +1,20 @@
-import Contact from '../../../public/icons/Areas/contact.svg';
-import styled from '../../styles/Areas/Commons.module.scss';
+import type { Metadata } from 'next';
+import Contact from '../../../../public/icons/Areas/contact.svg';
+import styled from '@/styles/Areas/Commons.module.scss';
 import Form from 'components/Commons/Form';
-import Head from 'next/head';
+
+export const metadata: Metadata = {
+  title: 'Direito do Trabalho',
+  description:
+    'Atuação em Direito do Trabalho: defesas, acidentes de trabalho, justa causa, horas extras, adicionais e reconhecimento de vínculo.',
+  alternates: { canonical: '/areas/trabalhista' },
+};
 
 
 
 function Trabalhista() {
   return (
     <>
-      <Head>
-        <meta name="description" content="Descubra tudo o que precisa saber sobre direito trabalhista, incluindo conceitos, direitos dos trabalhadores, processos, entre outros aspectos importantes." />
-        <meta name="keywords" content="direito trabalhista, trabalhadores, salário, jornada de trabalho, demissão" />
-        <meta name="robots" content="index,follow" />
-        <meta name="revisit-after" content="7 days" />
-        <link rel="canonical" href="https://www.figueiroadvocacia.com.br/areas/trabalhista" />
-
-        <title> Trabalhista | Figueiró Advocacia</title>
-      </Head>
-
       <section className={styled.section} style={{ backgroundImage: 'url(\'/bgs/areas/work.webp\')' }}>
         <div className='d-flex flex-column container gap-3 py-5'>
 

@@ -1,22 +1,20 @@
-import Head from 'next/head';
-import Contact from '../../../public/icons/Areas/contact.svg';
-import styled from '../../styles/Areas/Commons.module.scss';
+import type { Metadata } from 'next';
+import Contact from '../../../../public/icons/Areas/contact.svg';
+import styled from '@/styles/Areas/Commons.module.scss';
 import Form from 'components/Commons/Form';
+
+export const metadata: Metadata = {
+  title: 'Contratos',
+  description:
+    'Elaboração, revisão e negociação de contratos com segurança jurídica.',
+  alternates: { canonical: '/areas/contratos' },
+};
 
 
 
 function Contratos() {
   return (
     <>
-      <Head>
-        <meta name="description" content="Aprenda tudo sobre contratos, incluindo conceitos, processos, documentação necessária, entre outros aspectos importantes."/>
-        <meta name="keywords" content="contratos, bens, negócios, riscos"/>
-        <meta name="robots" content="index,follow"/>
-        <meta name="revisit-after" content="7 days"/>
-        <link rel="canonical" href="https://www.figueiroadvocacia.com.br/areas/contratos" />
-
-        <title> Contratos | Figueiró Advocacia</title>
-      </Head>
       <section className={styled.section} style={{backgroundImage: 'url(\'/bgs/areas/contratos.webp\')'}}>
         <div className='d-flex flex-column container gap-3 py-5'>
 

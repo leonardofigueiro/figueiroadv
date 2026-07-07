@@ -1,23 +1,21 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
-import Contact from '../../../public/icons/Areas/contact.svg';
-import styled from '../../styles/Areas/Commons.module.scss';
+import Contact from '../../../../public/icons/Areas/contact.svg';
+import styled from '@/styles/Areas/Commons.module.scss';
 import Form from 'components/Commons/Form';
-import Head from 'next/head';
+
+export const metadata: Metadata = {
+  title: 'Inventários e Sucessões',
+  description:
+    'Inventário (judicial e em cartório), testamento, partilha e planejamento sucessório.',
+  alternates: { canonical: '/areas/sucessoes' },
+};
 
 
 
 function Sucessoes() {
   return (
     <>
-      <Head>
-        <meta name="description" content="Aprenda tudo sobre inventário, incluindo conceitos, processos, documentação necessária, entre outros aspectos importantes." />
-        <meta name="keywords" content="inventário, bens, herança, testamento, inventariante" />
-        <meta name="robots" content="index,follow" />
-        <meta name="revisit-after" content="7 days" />
-        <link rel="canonical" href="https://www.figueiroadvocacia.com.br/areas/sucessoes" />
-
-        <title> Inventários | Figueiró Advocacia</title>
-      </Head>
       <section className={styled.section} style={{ backgroundImage: 'url(\'/bgs/areas/sucessoes.webp\')' }}>
         <div className='d-flex flex-column container gap-3 py-5'>
 

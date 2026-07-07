@@ -1,22 +1,20 @@
-import Contact from '../../../public/icons/Areas/contact.svg';
-import styled from '../../styles/Areas/Commons.module.scss';
+import type { Metadata } from 'next';
+import Contact from '../../../../public/icons/Areas/contact.svg';
+import styled from '@/styles/Areas/Commons.module.scss';
 import Form from 'components/Commons/Form';
-import Head from 'next/head';
+
+export const metadata: Metadata = {
+  title: 'Responsabilidade Civil',
+  description:
+    'Responsabilidade civil e indenizações: quando buscar reparação por danos morais ou materiais.',
+  alternates: { canonical: '/areas/civil' },
+};
 
 
 
 function Civil() {
   return (
     <>
-      <Head>
-        <meta name="description" content="Conheça as principais perguntas e respostas sobre responsabilidade civil, incluindo conceitos, indenizações, prescrição, entre outros." />
-        <meta name="keywords" content="responsabilidade civil, indenização, danos, prescrição, direito contratual" />
-        <meta name="robots" content="index,follow" />
-        <meta name="revisit-after" content="7 days" />
-        <link rel="canonical" href="https://www.figueiroadvocacia.com.br/areas/civil" />
-
-        <title> Responsabilidade Civil | Figueiró Advocacia</title>
-      </Head>
       <section className={styled.section} style={{ backgroundImage: 'url(\'/bgs/areas/resp_civil.webp\')' }}>
         <div className='d-flex flex-column container gap-3 py-5'>
 
